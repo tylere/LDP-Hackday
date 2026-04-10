@@ -207,7 +207,9 @@ marimo/_lsp/
 __marimo__/
 
 # Quarto (run `pixi run render` to regenerate)
+quarto/*.html
 quarto/*_files/
+
 # pixi environments
 .pixi/*
 !.pixi/config.toml
