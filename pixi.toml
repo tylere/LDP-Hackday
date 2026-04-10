@@ -11,3 +11,10 @@ render = "quarto render quarto/example-presentation.qmd"
 
 [dependencies]
 quarto = ">=1.8.27,<2"
+jupyter = ">=1.1.1,<2"
+xarray = ">=2026.2.0,<2027"
+zarr = ">=3.0.4"
+fsspec = ">=2026.3.0,<2027"
+requests = ">=2.33.1,<3"
+aiohttp = ">=3.13.5,<4"
+matplotlib = ">=3.10.8,<4"

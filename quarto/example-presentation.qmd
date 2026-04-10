@@ -3,18 +3,26 @@ title: "LDP Hackday: Source.Coop & CNG"
 subtitle: "Cloud Object Data Publishing"
 author: Tyler Erickson
 affiliation: Radiant.Earth
+jupyter: python3
 format:
   revealjs:
     theme: simple
     transition: fade
     slide-number: true
     chalkboard: false
-    footer: "Reveal.js · Built with Quarto · env via pixi"
+    # footer: "LDP Hackday"
     include-in-header:
       text: |
         <style>
         .reveal .slides section.hide-slide-title > h2 {
           display: none !important;
+        }
+        .reveal .scrollbox {
+            max-height: 65vh;   /* tune: 60vh–75vh */
+            overflow-y: auto;
+            overflow-x: auto;   /* optional, for wide tables */
+            text-align: left;
+            padding-right: 0.5em; /* room for scrollbar */
         }
         </style>
 ---
@@ -25,14 +33,19 @@ format:
 - Member of the CNG community.
 - Recently joined Radiant.Earth
 
-## Radiant.Earth
+## Radiant.Earth {.hide-slide-title}
 
-Radiant.Earth is a non-profit
-
-Projects
-
-  - CNG community
-  - Source.Coop
+```{=html}
+<iframe
+  src="https://radiant.earth/"
+  title="Source.Coop"
+  width="100%"
+  height="640"
+  style="border: 1px solid #ccc; border-radius: 6px; max-width: 100%;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+```
 
 ## Source.Coop {.hide-slide-title}
 
@@ -47,6 +60,22 @@ Projects
   referrerpolicy="no-referrer-when-downgrade"
 ></iframe>
 ```
+
+## Why Cloud Object Storage?
+
+- **Commodity** infrastructure
+- Accessible **at Scale**
+- **Performant**
+- Cost effective (for highly accessible hosting)
+- Standardized API (S3-compatible)
+
+## Why Source?
+
+- `Source` handles the cloud infrastructure complexity
+  <br/>... of multiple cloud providers
+- Run by a non-profit
+  - w/ non-profit governance, incentives
+  - Focus on long-term scientific data hosting 
 
 ## Source.Coop Docs {.hide-slide-title}
 
@@ -73,60 +102,112 @@ Projects
 ## CNG community {.hide-slide-title}
 
 ```{=html}
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.25rem 1rem 1rem;">
-  <a href="https://cloudnativegeo.org/" target="_blank" rel="noopener noreferrer" style="display: inline-block; line-height: 0;">
-    <img
-      src="images/cng-homepage.png"
-      alt="Screenshot of the Cloud-Native Geospatial Forum homepage at cloudnativegeo.org"
-      width="1440"
-      height="900"
-      style="max-width: 100%; max-height: 70vh; width: auto; height: auto; border: 1px solid #ccc; border-radius: 6px;"
-      loading="lazy"
-    />
-  </a>
-</div>
+<iframe
+  src="https://cloudnativegeo.org/"
+  title="Source.Coop"
+  width="100%"
+  height="640"
+  style="border: 1px solid #ccc; border-radius: 6px; max-width: 100%;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
 ```
 
+## Why CNG Formats?
 
-## Run it locally
+- Takes advantage of Web standards to provide highly efficient access to geospatial data
+  - [HTTP range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Range_requests) for the win!
 
-From the repository root:
+## CNG Format Examples: {.smaller}
 
-```bash
-pixi install
-pixi run quarto preview quarto/example-presentation.qmd
+- In general, CNG formats include specs for both metadata and data storage.
+- Format specs and conventions are open,community-driven, and evolving
+
+<br>
+
+| CNG Format | Data type |
+|--------|-------------|
+| [Cloud-optimized GeoTIFF](https://www.cogeo.org/) | Multiple rasters |
+| [Zarr](https://zarr.readthedocs.io/en/stable/) | N-dimensional data |
+| [Cloud-optimized Point Cloud](https://copc.io/) | Point clouds |
+| [PMTiles](https://pmtiles.org/) | Visualization tiles |
+| [Parquet](https://parquet.apache.org/) | Columnar data (w/ geospatial) |
+
+
+## Example (Historical Data) {.smaller}
+
+::: scrollbox
+
+Open the GEFS analysis dataset
+```{python}
+#| echo: true
+import xarray as xr
+
+ds = xr.open_zarr("https://data.dynamical.org/noaa/gefs/analysis/latest.zarr")
 ```
 
-To render HTML once:
+Plot precipitation over time for Berkeley, CA
 
-```bash
-pixi run quarto render quarto/example-presentation.qmd
+```{python}
+#| echo: true
+ds["precipitation_surface"].sel(
+    latitude=37.8715618,
+    longitude=-122.2682569,
+    method="nearest"
+).plot()
 ```
 
-Output appears next to the source file as `example-presentation.html`.
+View temperature for the western US on April 10th, 2026
 
-## Columns {.smaller}
+```{python}
+#| echo: true
+ds["temperature_2m"].sel(
+    time="2026-04-10T03:00",
+    latitude=slice(50, 30),
+    longitude=slice(-130, -110),
+).plot()
+```
+:::
+
+## Example (Forecast Data) {.smaller}
+
+::: scrollbox
+
+Open the GEFS analysis dataset
+```{python}
+#| echo: true
+import xarray as xr
+
+ds = xr.open_zarr("https://data.dynamical.org/noaa/gefs/forecast-35-day/latest.zarr")
+```
+
+Plot ensemble forecast for precipitation for Berkeley, CA
+
+```{python}
+#| echo: true
+plot_ds = ds.sel(
+    init_time="2026-04-10T00",
+    latitude=37.8715618, longitude=-122.2682569,
+    method="nearest"
+)
+_ = plot_ds["precipitation_surface"].plot(x="valid_time", hue="ensemble_member")
+```
+:::
+
+
+## Where to next?
 
 ::: {.columns}
 
 ::: {.column width="50%"}
-**Pixi**
-
-- Reproducible conda-forge env
-- `pixi.toml` + `pixi.lock`
-- `pixi run …` without manual activation
+- [Source.Coop docs](https://docs.source.coop/)
+- [CNG community](https://cloudnativegeo.org/)
+- [CNG Format Guide](https://guide.cloudnativegeo.org/)
+- [Dynamical.org](https://dynamical.org/)
 :::
 
 ::: {.column width="50%"}
-**Quarto**
-
-- Markdown-first authoring
-- Multiple output formats
-- Great defaults for slides (`revealjs`)
+***Add QR code***
 :::
 
 :::
-
-## Thank you
-
-Questions, tweaks, and PRs welcome.
