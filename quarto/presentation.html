@@ -334,13 +334,13 @@ Tyler Erickson
 <h2>Example (Historical Data)</h2>
 <div class="scrollbox">
 <p>Open the GEFS analysis dataset</p>
-<div id="1c190a38" class="cell" data-execution_count="1">
+<div id="eea49684" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> xarray <span class="im">as</span> xr</span>
 <span id="cb1-2"><a href=""></a></span>
 <span id="cb1-3"><a href=""></a>ds <span class="op">=</span> xr.open_zarr(<span class="st">"https://data.dynamical.org/noaa/gefs/analysis/latest.zarr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Plot precipitation over time for Berkeley, CA</p>
-<div id="2937aa87" class="cell" data-execution_count="2">
+<div id="67771e14" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a>ds[<span class="st">"precipitation_surface"</span>].sel(</span>
 <span id="cb2-2"><a href=""></a>    latitude<span class="op">=</span><span class="fl">37.8715618</span>,</span>
 <span id="cb2-3"><a href=""></a>    longitude<span class="op">=-</span><span class="fl">122.2682569</span>,</span>
@@ -355,7 +355,7 @@ Tyler Erickson
 </div>
 </div>
 <p>View temperature for the western US on April 10th, 2026</p>
-<div id="478605f2" class="cell" data-execution_count="3">
+<div id="ec6d06df" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>ds[<span class="st">"temperature_2m"</span>].sel(</span>
 <span id="cb3-2"><a href=""></a>    time<span class="op">=</span><span class="st">"2026-04-10T03:00"</span>,</span>
 <span id="cb3-3"><a href=""></a>    latitude<span class="op">=</span><span class="bu">slice</span>(<span class="dv">50</span>, <span class="dv">30</span>),</span>
@@ -375,13 +375,13 @@ Tyler Erickson
 <h2>Example (Forecast Data)</h2>
 <div class="scrollbox">
 <p>Open the GEFS analysis dataset</p>
-<div id="50f4421c" class="cell" data-execution_count="4">
+<div id="cbaa2dc8" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="im">import</span> xarray <span class="im">as</span> xr</span>
 <span id="cb4-2"><a href=""></a></span>
 <span id="cb4-3"><a href=""></a>ds <span class="op">=</span> xr.open_zarr(<span class="st">"https://data.dynamical.org/noaa/gefs/forecast-35-day/latest.zarr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Plot ensemble forecast for precipitation for Berkeley, CA</p>
-<div id="5fd96fd0" class="cell" data-execution_count="5">
+<div id="a954beeb" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>plot_ds <span class="op">=</span> ds.sel(</span>
 <span id="cb5-2"><a href=""></a>    init_time<span class="op">=</span><span class="st">"2026-04-10T00"</span>,</span>
 <span id="cb5-3"><a href=""></a>    latitude<span class="op">=</span><span class="fl">37.8715618</span>, longitude<span class="op">=-</span><span class="fl">122.2682569</span>,</span>
