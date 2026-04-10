@@ -197,17 +197,21 @@ _ = plot_ds["precipitation_surface"].plot(x="valid_time", hue="ensemble_member")
 
 ## Where to next?
 
-::: {.columns}
-
-::: {.column width="50%"}
 - [Source.Coop docs](https://docs.source.coop/)
 - [CNG community](https://cloudnativegeo.org/)
 - [CNG Format Guide](https://guide.cloudnativegeo.org/)
 - [Dynamical.org](https://dynamical.org/)
-:::
+<br/>
 
-::: {.column width="50%"}
-***Add QR code***
-:::
+## Thank You!
 
-:::
+<br/>
+<br/>
+```{=html}
+<a href="https://github.com/tylere/LDP-Hackday" target="_blank" rel="noopener noreferrer" title="Open repository on GitHub">
+  <img src="images/github-repo-qr.png" alt="QR code for github.com/tylere/LDP-Hackday" width="198" height="198" style="display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 4px;">
+</a>
+```
+```{=html}
+<p style="text-align: center; margin-top: 0.5rem;"><a href="https://github.com/tylere/LDP-Hackday" target="_blank" rel="noopener noreferrer">github.com/tylere/LDP-Hackday</a></p>
+```
