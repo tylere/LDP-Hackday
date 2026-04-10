@@ -6,7 +6,7 @@ affiliation: Radiant.Earth
 jupyter: python3
 format:
   revealjs:
-    theme: simple
+    theme: night
     transition: fade
     slide-number: true
     chalkboard: false
@@ -29,9 +29,9 @@ format:
 
 ## Hi!
 
-- I'm Tyler.
-- Member of the CNG community.
-- Recently joined Radiant.Earth
+- I'm Tyler
+- A member of the CNG community
+- Recently joined Radiant Earth
 
 ## Radiant.Earth {.hide-slide-title}
 
@@ -195,13 +195,35 @@ _ = plot_ds["precipitation_surface"].plot(x="valid_time", hue="ensemble_member")
 :::
 
 
-## Where to next?
+## Where to next? {.smaller}
+
+<br/>
+
+::: columns
+
+::: {.column width="50%"}
+To find data:
+
+- [Source.Coop](https://source.coop/)
+- [STAC Index](https://stacindex.org/)
+- [AWS Open Data Registry](https://registry.opendata.aws/)
+- [Overture Maps](https://docs.overturemaps.org/getting-data/cloud-sources/)
+
+:::
+
+::: {.column width="50%"}
+To optimize data access:
+
+- [CNG Format Guide](https://guide.cloudnativegeo.org/)
+- [CNG community](https://cloudnativegeo.org/)
+
+<br/>
+To publish data:
 
 - [Source.Coop docs](https://docs.source.coop/)
-- [CNG community](https://cloudnativegeo.org/)
-- [CNG Format Guide](https://guide.cloudnativegeo.org/)
-- [Dynamical.org](https://dynamical.org/)
-<br/>
+:::
+
+:::
 
 ## Thank You!
 
