@@ -1,0 +1,13 @@
+[workspace]
+authors = ["Tyler Erickson <tyler@vorgeo.com>"]
+channels = ["conda-forge"]
+name = "LDP-Hackday"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+preview = "quarto preview quarto/example-presentation.qmd"
+render = "quarto render quarto/example-presentation.qmd"
+
+[dependencies]
+quarto = ">=1.8.27,<2"
