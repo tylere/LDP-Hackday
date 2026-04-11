@@ -1,5 +1,5 @@
 ---
-title: "LDP Hackday: Source.Coop & CNG"
+title: "LDP Hackday: Source Cooperative & CNG"
 subtitle: "Cloud Object Data Publishing"
 author: Tyler Erickson
 affiliation: Radiant.Earth
@@ -38,7 +38,7 @@ format:
 ```{=html}
 <iframe
   src="https://radiant.earth/"
-  title="Source.Coop"
+  title="Radiant Earth"
   width="100%"
   height="640"
   style="border: 1px solid #ccc; border-radius: 6px; max-width: 100%;"
@@ -47,12 +47,12 @@ format:
 ></iframe>
 ```
 
-## Source.Coop {.hide-slide-title}
+## Source Cooperative {.hide-slide-title}
 
 ```{=html}
 <iframe
   src="https://source.coop"
-  title="Source.Coop"
+  title="Source Cooperative"
   width="100%"
   height="640"
   style="border: 1px solid #ccc; border-radius: 6px; max-width: 100%;"
@@ -69,20 +69,20 @@ format:
 - Cost effective (for highly accessible hosting)
 - Standardized API (S3-compatible)
 
-## Why Source?
+## Why `Source`?
 
-- `Source` handles the cloud infrastructure complexity
+- Source Cooperative (aka `Source`) handles the cloud infrastructure complexity
   <br/>... of multiple cloud providers
 - Run by a non-profit
   - w/ non-profit governance, incentives
   - Focus on long-term scientific data hosting 
 
-## Source.Coop Docs {.hide-slide-title}
+## Source Cooperative Docs {.hide-slide-title}
 
 ```{=html}
 <iframe
   src="https://docs.source.coop/"
-  title="Source.Coop"
+  title="Source Cooperative Docs"
   width="100%"
   height="640"
   style="border: 1px solid #ccc; border-radius: 6px; max-width: 100%;"
@@ -104,7 +104,7 @@ format:
 ```{=html}
 <iframe
   src="https://cloudnativegeo.org/"
-  title="Source.Coop"
+  title="CNG community"
   width="100%"
   height="640"
   style="border: 1px solid #ccc; border-radius: 6px; max-width: 100%;"
@@ -204,7 +204,7 @@ _ = plot_ds["precipitation_surface"].plot(x="valid_time", hue="ensemble_member")
 ::: {.column width="50%"}
 To find data:
 
-- [Source.Coop](https://source.coop/)
+- [Source Cooperative](https://source.coop/)
 - [STAC Index](https://stacindex.org/)
 - [AWS Open Data Registry](https://registry.opendata.aws/)
 - [Overture Maps](https://docs.overturemaps.org/getting-data/cloud-sources/)
@@ -220,7 +220,7 @@ To optimize data access:
 <br/>
 To publish data:
 
-- [Source.Coop docs](https://docs.source.coop/)
+- [Source Cooperative docs](https://docs.source.coop/)
 :::
 
 :::
